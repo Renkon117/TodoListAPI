@@ -26,6 +26,7 @@ db.on('error', err => {
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static("./api/public"));
 app.use(bodyParser.json());
 
 var routes = require('./api/routes/todoListRoutes');
