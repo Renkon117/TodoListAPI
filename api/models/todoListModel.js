@@ -1,6 +1,8 @@
 
 'use strict';
 
+//creating a model with schema from mongoose
+
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
