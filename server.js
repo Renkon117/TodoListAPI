@@ -1,5 +1,6 @@
 var express = require('express');
 
+//START BY "npm run start"
 app = express();
 port = process.env.PORT || 3030;
 
