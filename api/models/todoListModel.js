@@ -1,10 +1,7 @@
 
 'use strict';
 
-import { stringify } from "querystring";
-import { model } from "mongoose";
-
-var mongoose = requre('mongoose');
+var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var TaskSchema = new Schema({

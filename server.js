@@ -1,8 +1,28 @@
 var express = require('express');
 
 //START BY "npm run start"
-app = express();
-port = process.env.PORT || 3030;
+app = express(),
+    port = process.env.PORT || 3030,
+
+    mongoose = require('mongoose'),
+    Task = require('./api/models/todoListModel'),
+
+    bodyParser = require('body-parser');
+
+mongoose.Promiss = global.Promiss;
+mongoose.connect('mongodb:/localhost/Tododb');
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+var routes = require('./api/routes/todoListRoute');
+routes(app); //register the app
+
+
+app.use(function (req, res) {
+    res.status(404).send({ url: req.originalUrl + ' not found' })
+});
+
 
 app.listen(port);
 
