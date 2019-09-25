@@ -9,8 +9,11 @@ app = express(),
 
     bodyParser = require('body-parser');
 
-mongoose.Promiss = global.Promiss;
-mongoose.connect('mongodb:/localhost/Tododb');
+mongoose.Promise = global.Promise;
+mongoose.set('useUnifiedTopology', true);
+mongoose.connect('mongodb://localhost/Tododb', { useNewUrlParser: true });
+
+
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -20,7 +23,7 @@ routes(app); //register the app
 
 
 app.use(function (req, res) {
-    res.status(404).send({ url: req.originalUrl + ' not found' })
+    res.status(404).send({ url: req.originalUrl + ' not found' });
 });
 
 
